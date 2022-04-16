@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://dudomon.epizy.com/imagens/logo-barra.ico" type="image/x-icon" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.css">
+    <link rel="stylesheet" href="../../main.css?v=5" />
+    <title>PEDIDOS MÚSICAS</title>
+</head>
+<body>
+    <div id="tela-carregando"><span><div class="carregando-animacao"></div><p>Carregando . . .</p></span></div>
+    <section class="max-width-tela">
+        <article id="acoes">
+            <button id="bnt-ativa-som" onclick="somAtivado()"><i class="fas fa-volume-off"></i></button>
+            <input type="number" name="senha" id="senha" placeholder="Senha" required>
+            <ul class="acoes-status">
+                <li>
+                    <input type="radio" id="fechado" name="status" value="0" onclick="enviarAcoes(acao = 'st0')">
+                    <label for="fechado">Fechado</label>
+                </li>
+                <li>
+                    <input type="radio" id="aberto" name="status" value="1" onclick="enviarAcoes(acao = 'st1')">
+                    <label for="aberto">Aberto</label>  
+                </li>
+                <li>
+                    <input type="radio" id="pausa" name="status" value="2" onclick="enviarAcoes(acao = 'st2')">
+                    <label for="pausa">Pausa</label>
+                </li>
+            </ul>   
+            <button ondblclick="enviarAcoes(acao = 'clear')"><i class="fas fa-broom"></i> Limpar tudo</button>
+        </article>
+
+        <article id="pedidos">
+            <h1 class="titulo"><i class="fas fa-clipboard-list"></i> Pedidos de música</h1>
+            <ul id="container-pedidos">
+                <!--------------------  Aqui onde o dados_musica_mod.js coloca a lista de pedido de musica  ---------------------->
+            </ul>
+        </article>
+        <article id="pagos">
+            <div class="container-titulo">
+                <h1 class="titulo"><i class="fas fa-search-dollar"></i> Pedidos de músicas pagos</h1>
+            </div>
+            <ul id="container-pedidos">
+                <!--------------------  Aqui onde o dados_musica_mod.js coloca a lista de pedido pagos de musica  ---------------------->
+            </ul>
+        </article>
+        <article id="usados">
+            <div class="container-titulo">
+                <h1 class="titulo"><i class="fas fa-compact-disc"></i> Pedidos de músicas já tocadas</h1>
+            </div>
+            <ul id="container-pedidos">
+                <!--------------------  Aqui onde o dados_musica_mod.js coloca a lista de pedido tocados de musica  ---------------------->
+            </ul>
+        </article>
+        <!----------- form responsavel pelo envio das acoes pro sevidos --------->
+        <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+        <form action="https://dados-site-dudomon-mod.herokuapp.com/post_acao_musica" method="post" id="envia-acoes" onsubmit="fetchDados()" target="dummyframe" style="display: none;">
+            <div id="container-acoes">
+                <!--------------------  Aqui onde o dados_musica_mod.js cola as acoes a enviar pro sevidor  ---------------------->
+            </div>
+            <input id="bnt-envia" type="submit" value="Enviar">
+        </form>
+    </section>
+    <style>
+       section.max-width-tela {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #senha {
+            width: 100px;
+            height: 40px;
+            padding: 5px;
+            background: #80808033;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+            color: #FFD11D;
+        }
+
+        #senha:focus-visible {
+            outline: 2px solid #FFD11D;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        #acoes {
+            width: 100%;
+            margin: 40px 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #acoes .acoes-status {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        #acoes .acoes-status li {
+            margin: 10px;
+        }
+
+        #acoes .acoes-status li input[type="radio"] {
+            display: none;
+        }
+
+        #acoes .acoes-status li label {
+            width: 100px;
+            height: 40px;
+            padding: 4px 10px;
+            background-color: #80808033;
+            outline: 2px solid transparent;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: 400ms;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #acoes .acoes-status li label:hover {
+            outline-color: #FFD11D;
+            color: #FFD11D;
+        }
+
+        #acoes .acoes-status li input[type="radio"]:checked+label {
+            background-color: #FFD11D;
+            color: #000;
+        }
+
+        #acoes button {
+            height: 40px;
+            margin: 10px;
+            padding: 5px 20px;
+            background: #80808033;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: #f5f5f5;
+            transition: 400ms;
+            cursor: pointer;
+        }
+
+        #acoes button:hover {
+            background: #FFD11D;
+            color: #000;
+        }
+
+        #pedidos, 
+        #pagos,
+        #usados{
+            width: 100%;
+        }
+
+        #pagos,
+        #usados{
+            margin-top: 70px;
+            padding-top: 30px;
+            border-top: 3px solid #f5f5f533;
+        }
+
+        #pedidos h1,
+        #pagos h1,
+        #usados h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        #pedidos h1 i,
+        #pagos h1 i,
+        #usados h1 i {
+            margin-right: 10px;
+        }
+
+        #container-pedidos li {
+            height: 50px;
+            margin: 20px 0;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #container-pedidos li div {
+            height: 100%;
+            margin-right: 5px;
+            background: #8080801A;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container-pedidos li:hover div {
+            background: #80808033; 
+        }
+
+        #container-pedidos li div:first-child {
+            width: 300px;
+            border-radius: 5px 0 0 5px;
+        }
+
+        #container-pedidos li div:nth-child(2){
+            width: 100%;
+        }
+
+        #container-pedidos li div:last-child {
+            width: 70px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        #container-pedidos li div button {
+            width: 30px;
+            height: 30px;
+            background: #80808033;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 400ms;
+        }
+
+        #container-pedidos li h2,
+        #container-pedidos li p {
+            font-size: 1.2rem;
+        }
+
+        #container-pedidos li div button i {
+            opacity: 0;
+            font-size: 100%;
+            color: #FFD11D;
+        }
+
+        #container-pedidos li div button:hover i {
+            opacity: 1;
+        }
+
+        #pedidos #container-pedidos li div button:hover,
+        #pagos #container-pedidos li div button{
+            background: #0b6d00;
+        }
+
+        #pagos #container-pedidos li div button:hover,
+        #usados #container-pedidos li div button{
+            background: #8d0000;
+        }
+
+        #usados #container-pedidos li div {
+            background: #101010;
+        }
+    </style>
+
+    <script src="dados_musica_mod.js?v=1"></script>
+</body>
+</html>

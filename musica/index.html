@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Agora você pode pedir sua musica favorita para tocar enquanto curte a live! também pode ver e ouvir nossas principais playlists." />
+    <meta property="og:title" content="Músicas" />
+    <meta property="og:Description" content="Agora você pode pedir sua musica favorita para tocar enquanto curte a live! também pode ver e ouvir nossas principais playlists." />
+    <link rel="stylesheet" href="../main.css?v=5" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.css">
+    <link rel="icon" href="https://dudomon.epizy.com/imagens/logo-barra.ico" type="image/x-icon" />
+    <title>DUDOMON | MÚSICA</title>
+</head>
+<body>
+  <div id="tela-carregando"><span><div class="carregando-animacao"></div><p>Carregando . . .</p></span></div>
+  <div id="menus"><!------------------------------ Aqui onde o main.js insere os menus ---------------------------------------------></div>
+  <section id="section-apresentacao">
+    <img src="../imagens/imagens_topo/Img-fundo-musica.png" alt="">
+    <article>
+      <div class="max-width-tela container-apresentacao"> 
+        <h1>Músicas da live</h1>
+        <p>Aqui vocês podem pedir uma música para ouvirem enquanto curtem a live, também podem ver e curtir as playlists que tocan durante a live.</p>
+        <div class="container-bnts">
+            <a href="#pedir-musica"><div>Pedir Música</div></a>
+            <a href="#playlist"><div>Ver as playlists</div></a>
+        </div>
+        <div class="gif-scroll">
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_NnBW3K.json"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"  loop autoplay></lottie-player>
+        </div>
+      </div>
+    </article>
+   </section>
+   <main id="conteudo">
+    <section id="pedir-musica">
+      <article class="max-width-tela">
+        <h1 class="titulo">Pedido de música</h1>
+        <div id="ficha-inscricao">
+            <!------------------------------ Aqui onde o main.js insere os menus --------------------------------------------->
+            <div id="tela-carregando"><span><div class="carregando-animacao"></div></span></div>
+        </div>
+      </article>
+    </section>
+    <section id="inportante" class="cor-destaque">
+      <article class="max-width-tela">
+        <h1 class="titulo">Importante</h1>
+        <ul class="items-inportantes">
+          <li><p>A música escolhida deve estar disponível no SPOTIFY</p></li>
+          <li><p>Os pedidos de musica não são gratuitos, existe uma taxa de 2 reais.</p></li>
+          <li><p>Sua música será tocada após confirmarmos seu pagamento, e seguindo a ordem dos pedidos</p></li>
+        </ul>
+      </article>
+    </section>
+    <section id="playlist">
+        <article class="max-width-tela">
+        <h1 class="titulo">Playlists da live</h1>
+        <p>Segue nossas playlists que tocan durante a live do Spotify.</p>
+          <iframe style="border-radius:10px" src="https://open.spotify.com/embed/playlist/1YestTJp3ZgqnVpQt1YC8N?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          <iframe style="border-radius:10px" src="https://open.spotify.com/embed/playlist/2EucMzk9yEygUEWbvRa2P7?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          <iframe style="border-radius:10px" src="https://open.spotify.com/embed/playlist/0lcocGZEtqIDqPrqyEO6jt?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </article>
+      </section>
+  <footer id="rodape"><!-------------------------- Aqui onde o main.js insere o rodape (footer) -------------------------------------></footer>
+</main>
+<script src="../main.js?v=5"></script>
+<script src="dados_musica.js?v=3"></script>
+</body>

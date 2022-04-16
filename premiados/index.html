@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lista onde contém todos as pessoas que ganharam premiação na live durante um mês." />
+    <meta property="og:title" content="Premiados da live" />
+    <meta property="og:Description" content="Lista onde contém todos as pessoas que ganharam premiação na live durante um mês." />
+    <link rel="stylesheet" href="../main.css?v=5" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.css">
+    <link rel="icon" href="https://dudomon.epizy.com/imagens/logo-barra.ico" type="image/x-icon" />
+    <title>DUDOMON | PREMIADOS</title>
+</head>
+<body>
+  <div id="tela-carregando"><span><div class="carregando-animacao"></div><p>Carregando . . .</p></span></div>
+  <div id="menus"><!------------------------------ Aqui onde o main.js insere os menus ---------------------------------------------></div>
+  <section id="section-apresentacao">
+    <img src="../imagens/imagens_topo/Img-fundo-premiados.png" alt="">
+    <article>
+      <div class="max-width-tela container-apresentacao"> 
+        <h1>Premiados</h1>
+        <p>E uma lista onde contém todos as pessoas que ganharam premiação na live durante um mês, quem saiba você pôde ser um sortudo e estar nessa lista.</p>
+        <a href="#premiados"><div>Lista</div></a>
+        <div class="gif-scroll">
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_NnBW3K.json"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"  loop autoplay></lottie-player>
+        </div>
+      </div>
+    </article>
+  </section>
+  <main id="conteudo">
+      <section id="premiados">
+        <article class="max-width-tela">
+          <table class="jogadoresPremiados">
+            <div id="tela-carregando"><span><div class="carregando-animacao"></div></span></div>
+            <!--------------------- Aqui onde o dados_premiados.js insere as celulas da tabela (premiados)----------------------------->
+          </table>
+          <h1 class="titulo">Meios de ganhos</h1>
+          <p><mark>SubWars: </mark>Sorteio de gift card para um player da equipe vencedora do SubWars.</p>
+          <p><mark>Meta: </mark>Sorteio de gift card para os Subs da live quando batemos as metas de Subs do dia.</p>
+          <p><mark>Eventos: </mark>Sorteio de gift card ou skin para os Subs da live quando chega coleção de skin nova no Wild Rift.</p>
+        </article>
+      </section>
+      <section id="inportante" class="cor-destaque">
+        <article class="max-width-tela">
+          <h1 class="titulo">Importante</h1>
+          <ul class="items-inportantes">
+            <li><p>Caso um pessoa ganhe algo na live de alguma categoria, ela só poderá ganhar algo novamente dessa categoria depois de um mês.</p></li>
+            <li><p>Para resgatar sua premiação caso seja um premiado entre em contato via privado do Discord.</p></li>
+          </ul>
+          <ul class="links">
+            <li><a href="https://discord.com/channels/@me/821212001362509845" target="_black"><div><i class="fab fa-discord"></i>Dudomon</div></a></li>
+          </ul>
+        </article>
+      </section>
+    <footer id="rodape"><!-------------------------- Aqui onde o main.js insere o rodape (footer) -------------------------------------></footer>
+  </main>
+  <script src="../main.js?v=5"></script>
+  <script src="dados-premiados.js?v=1"></script>
+</body>

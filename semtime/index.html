@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lista com players que estão afim de jogar a Gado’s Cup mas não tem time." />
+    <meta property="og:title" content="Os sem time" />
+    <meta property="og:Description" content="Lista com players que estão afim de jogar a Gado’s Cup mas não tem time." />
+    <link rel="stylesheet" href="../main.css?v=5" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.css">
+    <link rel="icon" href="https://dudomon.epizy.com/imagens/logo-barra.ico" type="image/x-icon" />
+    <title>DUDOMON | OS SEM TIME</title>
+</head>
+<body>
+  <div id="tela-carregando"><span><div class="carregando-animacao"></div><p>Carregando . . .</p></span></div>
+  <div id="menus"><!------------------------------ Aqui onde o main.js insere os menus ---------------------------------------------></div>
+  <section id="section-apresentacao">
+    <img src="../imagens/imagens_topo/Img-fundo-semtime.png" alt="">
+    <article>
+      <div class="max-width-tela container-apresentacao"> 
+        <h1>Sem time</h1>
+        <p>E uma lista com players que estão afim de jogar a Gado’s Cup mas não tem time, contém Nick, linha, elo e whatsapp para contato com o player. Caso queira participar dessa lista e só clicar no botão abaixo e preencher o formulário.</p>
+        <a href="#formulario-semtime"><div>Quero ser adicionado</div></a>
+        <div class="gif-scroll">
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_NnBW3K.json"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"  loop autoplay></lottie-player>
+        </div>
+      </div>
+    </article>
+  </section>
+  <main id="conteudo">
+      <section id="lista-semtime">
+        <article  class="max-width-tela">
+          <ul id="container-semtime">
+            <div class="carregando-animacao"></div>
+            <!---------------------------- Aqui onde o dados_semtime.js insere os (li) jogares ---------------------------------->
+          </ul>
+        </article>
+      </section>
+      <section id="formulario-semtime" class="cor-destaque">
+        <article  class="max-width-tela">
+          <h1 class="titulo">Formulário</h1>
+          <div id="ficha-inscricao">
+            <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+            <form action="https://dados-site-dudomon.herokuapp.com/post_sem_time" method="post" onsubmit="enviou()" target="dummyframe">
+                <ul class="conteiner_input_jogadores">
+                  <li>
+                    <h3>Nick</h3>
+                    <div><input type="text" name="nick" placeholder="Ex: Dudomon#123" maxlength="25" required></div>
+                  </li>
+                  <li>
+                    <h3>Linha (Posiçao)</h3>
+                    <div><input type="text" name="linha" placeholder="Ex: MID/TOP/ADC" maxlength="25" required></div>
+                  </li>
+                  <li>
+                    <h3>Elo</h3>
+                    <div><input type="text" name="elo" placeholder="Ex: Diamante 3" maxlength="25" required></div>
+                  </li>
+                  <li>
+                    <h3>Whatsapp</h3>
+                    <div><input class="input-numero" type="tel" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="numeroWhatsapp" placeholder="Ex: 11 912312321" minlength="11" maxlength="11" required></div>
+                  </li>
+                </ul> 
+                <input class="bnt-inscricao" type="submit" id="inscricaoTime" value="Enviar">
+            </form>
+            <div id="aviso" class="none">
+              <div id="tela-carregando"><span><div class="carregando-animacao"></div></span></div>
+                <div id="instrucao-pagamento">
+                  <h1><i class="fas fa-clipboard-check"></i>Enviado com sucesso!</h1>
+                  <p>*Pode demorar um pouco para que você seja adicionado a lista.</p>
+                  <h1><i class="fas fa-smile-wink"></i></h1>
+                </div>
+            </div>    
+          </div>
+        </article>
+      </section>
+    <footer id="rodape"><!-------------------------- Aqui onde o main.js insere o rodape (footer) -------------------------------------></footer>
+  </main>
+  <script src="../main.js?v=5"></script>
+  <script src="dados_semtime.js?v=1"></script>
+</body>

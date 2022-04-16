@@ -1,0 +1,1456 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'NCAA';
+  src: url('NCAA\ Illinois\ Fighting\ Illini.otf') format('truetype');
+}
+
+html {
+  background: #0A0A0A;
+  box-sizing: border-box;
+  font-family: 'Roboto', serif;
+  scroll-behavior: smooth;
+  color: #F7F7F7;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, ol, ul, mark, input {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.3;
+  text-decoration: none;
+  color: #F7F7F7;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.loading {
+  position: fixed;
+  inset: 0;
+  top: 0;right: 0;bottom: 0;left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  background-color: #111111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.loading.desativado {
+  animation: sumir 1s ease-in-out forwards;
+}
+
+@keyframes sumir {
+  0% { opacity: 1; }
+  70% { opacity: 0;}
+  100% { opacity: 0; height: 0%; min-height: 0; padding: 0px;}
+}
+
+.loading.ativada {
+  animation: aparecer 200ms linear forwards;
+}
+
+@keyframes aparecer {
+  0% { opacity: 0; }
+  100% { opacity: 1;}
+}
+
+.loading::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 200px;
+  margin: 30px;
+  border: 3px solid #1F1F1F;
+  border-top-color: #FFD11D;
+  border-radius: 50%;
+  animation: spinning 300ms linear infinite;
+}
+
+@keyframes spinning {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.max-width-tela {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.none {
+  display: none !important;
+}
+
+.block {
+  display: block !important;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+mark {
+  font-weight: 500;
+  background: transparent;
+}
+
+.blur {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.565);
+  backdrop-filter: blur(2px);
+  z-index: 50;
+}
+
+.cor-destaque {
+  background: #1F1F1F;
+}
+
+/* Menu superior */
+#menu_navegacao {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  transition: 500ms;
+  z-index: 99;
+}
+
+#menu_navegacao.active {
+  background: #111111;
+  border-bottom: 2px solid #33333340
+}
+
+#menu_navegacao .container-nav-1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#menu_navegacao .container-nav-1 h1, #mais_menu .container-mais-nav-1 .div-top h1, footer h1 {
+  font-family: NCAA;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+#menu_navegacao .container-nav-1 ul {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#menu_navegacao .container-nav-1 li a{
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #A0A2A5;
+  transition: 400ms;
+}
+
+#menu_navegacao .container-nav-1 li a:hover{
+  color: #F7F7F7;
+}
+
+#menu_navegacao .container-nav-1 li a.active {
+  padding: 11px 0 13px 0;
+  color: #ffffff;
+  border: 5px solid transparent;
+  border-top-color: #FFD11D;
+  border-bottom-color: #FFD11D;
+  cursor: not-allowed;
+}
+
+#menu_navegacao .container-nav-1 li button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#menu_navegacao .container-nav-1 li button i {
+  font-size: 2rem;
+  color: #F7F7F7;
+  transition: 400ms;
+}
+
+#menu_navegacao .container-nav-1 li button:hover i {
+  color: #FFD11D;
+}
+
+/* Menu extra do topo */
+#mais_menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 20px;
+  width: 100%;
+  height: auto;
+  background: #111111;
+  z-index: 100;
+  transition: 500ms all;
+  transform: translateY(-350px)
+}
+
+#mais_menu.ativadoMenu {
+  transform: translateY(0px);
+}
+
+#mais_menu .container-mais-nav-1 .div-top {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#mais_menu .container-mais-nav-1 .div-top h1 {
+  color: #F7F7F7;
+}
+
+#mais_menu .container-mais-nav-1 .div-top button {
+  height: 35px;
+  padding: 5px 10px;
+  background: #1F1F1F;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  color: #A0A2A5;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+#mais_menu .container-mais-nav-1 .div-top button:hover {
+  background: #c60000;
+  color: #F7F7F7;
+}
+
+#mais_menu .container-mais-nav-1 ul{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#mais_menu .container-mais-nav-1 ul li{
+  margin: 20px;
+}
+
+#mais_menu .container-mais-nav-1 ul li a div {
+  padding: 7px;
+  width: 200px;
+  background: #1F1F1F;
+  border-radius: 5px;
+  border: 3px solid transparent;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #A0A2A5;
+  transition: 400ms;
+}
+
+#mais_menu .container-mais-nav-1 ul li a div i {
+  margin-right: 5px;
+}
+
+
+#mais_menu .container-mais-nav-1 ul li a:hover div {
+  border-color: #FFD11D;
+}
+
+#mais_menu .container-mais-nav-1 ul li a.active div {
+  background: #FFD11D;
+  color: #1F1F1F;
+  cursor: not-allowed;
+}
+
+#section-apresentacao {
+  position: fixed;
+  inset: 0;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 0;
+}
+
+#section-apresentacao img {
+  position: absolute;
+  margin: 0 auto  ;
+  max-width: none;
+}
+
+#section-apresentacao article{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#section-apresentacao .container-apresentacao {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#section-apresentacao .container-apresentacao h1 {
+  width: 100%;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+#section-apresentacao .container-apresentacao p {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+#section-apresentacao .container-bnts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#section-apresentacao .container-bnts a {
+  margin: 0 20px 20px 0;
+}
+
+#section-apresentacao .container-apresentacao a div {
+  position: relative;
+  min-width: 90px;
+  height: 50px;
+  padding: 0 10px;
+  background: transparent;
+  border-radius: 5px;
+  border: 2px solid #ffd11dcc;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #ffd11dcc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 400ms;
+}
+
+#section-apresentacao .container-apresentacao a div i {
+  font-size: 2rem;
+}
+
+#section-apresentacao .container-apresentacao a:hover div {
+  background: #ffd21d;
+  border-color:#ffd21d;
+  color: #000000;
+}
+
+#section-apresentacao .container-apresentacao .gif-scroll {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* stayle dp bnt da home qunado tem live*/
+#section-apresentacao #bnt-twitch {
+  margin-top: 10px;
+}
+
+#section-apresentacao #bnt-twitch i{
+  margin-right: 10px;
+}
+
+#section-apresentacao #bnt-twitch span {
+  position: absolute;
+  top: -22px;
+  left: 5px;
+  font-size: 20px;
+  font-weight: 800;
+  color: transparent;
+  background-size: 800% 800%;
+  background-image: linear-gradient(90deg, #EB0400, #ffd21d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradient 2s ease infinite;
+}
+
+#section-apresentacao #bnt-twitch img{
+  height: 50px;
+  position: absolute;
+  right: -40px;
+}
+/*///////////////////////////////////////*/
+
+#conteudo {
+  position: relative;
+  margin-top: 700px;
+  background: #0A0A0A;
+  z-index: 10;
+}
+
+#conteudo article{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#conteudo .loading {
+  position: absolute;
+  min-height: 200px;
+  border-radius: 5px;
+}
+
+#conteudo .loading::after {
+  max-width: 100px;
+  max-height: 100px;
+  border-bottom-color: #808080;
+  border-top-color: #808080;
+}
+
+#conteudo .titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+#conteudo .links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+#conteudo .links li{
+  margin: 10px;
+}
+
+#conteudo .links li a div{
+  width: 150px;
+  height: 50px;
+  padding: 5px;
+  background: #80808033;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  font-style: italic;
+  font-weight: 500;
+  color: #A0A2A5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 400ms ease;
+}
+
+#conteudo .links li a div i{
+  margin-right: 5px;
+}
+
+#conteudo .links li a:hover div,
+footer .container-footer ul li a:hover div {
+  border-color: #FFD11D;
+  color: #FFD11D;
+}
+
+/* section novidades home*/
+#novidades ul {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#novidades ul #tela-carregando {
+  position: absolute;
+}
+
+#novidades ul li {
+ margin: 10px;
+}
+
+#novidades ul li a div {
+  padding: 10px;
+  max-width: 460px;
+  min-height: 150px;
+  background: #80808033;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: 500ms;
+}
+
+#novidades ul li a:hover div {
+  border-color: #FFD11D;
+}
+
+#novidades ul li a div h1 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#novidades ul li a div h1 i {
+  margin-right: 5px;
+  color: #A0A2A5;
+  transition: 400ms;
+}
+
+#novidades ul li a:hover h1 i {
+  color: #FFD11D;
+}
+
+/* section Previlegios home*/
+#Previlegios ul li {
+  position: relative;
+  margin: 20px 0;
+  padding: 10px;
+  min-height: 70px;
+  background: #80808033;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#Previlegios ul li div {
+  position: absolute;
+  inset: 0;
+  width: 70px;
+  height: 100%;
+  background: #772CE8;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Previlegios ul li div img {
+  width: 40px;
+}
+
+#Previlegios ul li p {
+  margin: 0 0 0 70px;
+}
+
+/* section Videos home*/
+#videos #thumbnails-videos {
+  margin: 20px 0;
+  display: flex;
+}
+
+#videos #thumbnails-videos a {
+  position: relative;
+}
+
+#videos #thumbnails-videos a svg {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  color: #000000c8;
+}
+
+#videos #thumbnails-videos a:hover svg {
+  color: #FF3D00;
+}
+
+#videos #thumbnails-videos a#pricipal {
+  width: 100%;
+}
+
+#videos #thumbnails-videos #extra {
+  width: 32.8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#videos #thumbnails-videos #extra  a {
+  margin: 0 0 15px 20px;
+}
+
+#videos #thumbnails-videos #extra  a svg {
+  width: 80px;
+  height: 80px;
+}
+
+/*/////////////// inportante section ////////////////////////*/
+#inportante .items-inportantes li{
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+#inportante .items-inportantes li:last-child{
+  margin-bottom: 0px;
+}
+
+#inportante .items-inportantes li::before {
+  content: "➜";
+  color: #F7F7F7;
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+#inportante .links li{
+  margin-left: 25px;
+}
+
+/*/////////////// ficha de inscrição gados cup ////////////////////////*/
+#ficha-inscricao {
+  position: relative;
+  width: 100%;
+  margin: 15px 0;
+  padding: 15px;
+  background: #80808033;
+  border-radius: 10px;
+}
+
+#ficha-inscricao h1 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 30px 0 3px 0;
+}
+
+#ficha-inscricao h1:first-child {
+  margin: 0 0 3px 0;
+}
+
+#ficha-inscricao h1 i {
+  margin-right: 10px;
+  color: #FFD11D;
+}
+
+#ficha-inscricao p {
+  font-style: italic;
+}
+
+#ficha-inscricao input {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  margin: 5px 0;
+  background: none;
+  border: 2px solid #808080;
+  color: #A0A2A5;
+  text-align: center;
+  border-radius: 5px;
+  transition: 400ms;
+}
+
+#ficha-inscricao input:focus-visible{
+  border-color: #FFD11D;
+  outline: none;
+  color: #F7F7F7;
+}
+
+#ficha-inscricao .nome-time {
+  max-width: 600px;
+}
+
+#ficha-inscricao .conteiner_input_jogadores {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#ficha-inscricao .conteiner_input_jogadores li {
+  margin: 10px;
+}
+
+#ficha-inscricao .conteiner_input_jogadores li img {
+  width: 35px;
+}
+
+#ficha-inscricao .conteiner_input_jogadores li div {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#ficha-inscricao .conteiner_input_jogadores li div span {
+  position: absolute;
+  left: 0;
+  margin: 5px 0;
+  width: 40px;
+  height: 40px;
+  background: #808080;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ficha-inscricao .conteiner_input_jogadores li div input {
+  padding-left: 40px;
+  max-width: 300px;
+  z-index: 9;
+}
+
+#ficha-inscricao .input-numero{
+  max-width: 400px;
+}
+
+#ficha-inscricao .bnt-inscricao {
+  width: 100%;
+  max-width: 250px;
+  margin-top: 40px;
+  height: 50px;
+  background: #FFD11D;
+  border: none;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  white-space: normal;
+  outline: 2px solid transparent;
+  transition: 400ms;
+}
+
+#ficha-inscricao .bnt-inscricao:hover {
+  outline-color: #FFD11D;
+  outline-offset: 3px;
+}
+
+#ficha-inscricao #tela-carregando {
+  position: absolute;
+  border-radius: 10px;
+}
+
+#ficha-inscricao #tela-carregando .carregando-animacao {
+  width: 200px;
+  height: 200px;
+}
+
+/*/////////////// Aviso que acabou as inscricoes ////////////////////////*/
+#ficha-inscricao .encerrada-inscricao {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#ficha-inscricao .encerrada-inscricao i {
+  font-size: 5rem;
+  color: #808080;
+}
+/*/////////////// Aviso para pagamendo inscricao gados cup ////////////////////////*/
+#aviso #instrucao-pagamento h1 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#aviso .formas-pagamento {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#aviso .formas-pagamento li {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin: 20px;
+  padding: 10px;
+  border: 2px solid #80808033;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#aviso .formas-pagamento li span {
+  position: absolute;
+  inset: -2px -2px 0 -2px;
+  width: calc(100% + 4px);
+  height: 60px;
+  padding: 10px;
+  background: #80808033;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+#aviso .formas-pagamento li h4 {
+  margin-top: 60px;
+  word-break: break-all;
+}
+
+/*/////////////// times confirmados para gados cup ////////////////////////*/
+#times-gc .legenda-times {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#times-gc .legenda-times li {
+  width: 110px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#times-gc .legenda-times li img {
+  width: 40px;
+}
+
+#times-gc .legenda-times li p {
+  font-weight: 500;
+}
+
+#times-gc .container-times {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#times-gc .container-times ul {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  margin: 1rem;
+  padding: 45px 0 0 0;
+  border-radius: 5px;
+}
+
+#times-gc .container-times ul li:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 50px;
+  background: #FFD11D;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#times-gc .container-times ul li:first-child h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+#times-gc .container-times ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#times-gc .container-times ul li span,
+#times-gc .container-times ul li div{
+  height: 50px;
+  margin-top: 5px;
+  padding: 5px;
+  background: #80808033;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#times-gc .container-times ul li div {
+  width: 100%;
+  margin-left: 5px;
+  padding-left: 10px;
+}
+
+#times-gc .container-times ul li:last-child span {
+  border-radius: 0 0 0 5px;
+}
+
+#times-gc .container-times ul li:last-child div {
+  border-radius: 0 0 5px 0;
+}
+
+#times-gc .container-times ul li img {
+  width: 40px;
+}
+
+/*/////////////// sem time ////////////////////////*/
+#container-semtime {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-semtime li {
+  position: relative;
+  width: 310px;
+  margin: 20px;
+  padding: 10px 10px 45px 10px;
+  background: #80808033;
+  border-radius: 5px;
+}
+
+#container-semtime li h1 {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+#container-semtime li p {
+  margin: 10px 0;
+}
+
+#container-semtime li a span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  width: 100%;
+  background: #80808033;
+  border-radius: 0 0 5px 5px;
+  line-height: 40px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-align: center;
+  color: #A0A2A5;
+  transition: 400ms;
+}
+
+#container-semtime li a:hover span {
+  background: #FFD11D;
+  color: #101010;
+}
+
+#formulario-semtime #ficha-inscricao,
+#pedir-musica  #ficha-inscricao {
+  min-height: 150px;
+}
+
+#formulario-semtime #ficha-inscricao #aviso p,
+#pedir-musica #ficha-inscricao #aviso p {
+  text-align: center;
+}
+
+#formulario-semtime #ficha-inscricao #aviso #tela-carregando .carregando-animacao,
+#pedir-musica #ficha-inscricao #tela-carregando .carregando-animacao {
+  width: 100px;
+  height: 100px;
+}
+
+/*/////////////// Especificações do celular rifa ////////////////////////*/
+#especificacoes div {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#especificacoes div img {
+  max-width: 440px;
+  width: 100%;
+}
+
+#especificacoes div ul{
+  margin: 20px 0 0 30px;
+}
+
+#especificacoes div ul li {
+  margin: 15px 0;
+}
+
+#formulario-semtime #ficha-inscricao .conteiner_input_jogadores li h3{
+  font-weight: 500;
+}
+
+#formulario-semtime #ficha-inscricao .conteiner_input_jogadores li div input {
+  padding-left: 0;
+}
+
+#formulario-semtime #ficha-inscricao .bnt-inscricao  {
+  margin-top: 20px;
+}
+
+/*/////////////// Subwars ////////////////////////*/
+#participar-subwars mark {
+  font-size: 1.4rem;
+  line-height: 40px;
+}
+
+#participar-subwars .container-imgs {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#participar-subwars .container-imgs img {
+  margin: 10px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+/*/////////////// premiados ////////////////////////*/
+#premiados table {
+  width: 100%;
+  margin-bottom: 20px;
+  border: none;
+  border-spacing: 6px;
+  overflow: auto;
+}
+
+#premiados table tr {
+  height: 40px;
+  text-align: center;
+}
+
+#premiados table tr th {
+  background: #A0A2A5;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+#premiados table tr th:first-child {
+  border-radius: 10px 0 0 0;
+}
+
+#premiados table tr th:last-child {
+  border-radius: 0 10px 0 0;
+}
+
+#premiados table tr td {
+  background: #80808020;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+#premiados table tr:hover td {
+  background: #80808069;
+}
+
+#premiados table tbody:last-child td:first-child {
+  border-radius: 0 0 0 10px;
+}
+
+#premiados table tbody:last-child td:last-child {
+  border-radius: 0 0 10px 0;
+}
+
+#premiados p {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  #premiados table tr th:nth-child(4),
+  #premiados table tr td:nth-child(4) {
+    display: none;
+  }
+
+  #premiados table tbody:last-child th:nth-child(3) {
+    border-radius: 0 10px 0 0;
+  }
+  
+  #premiados table tbody:last-child td:nth-child(3) {
+    border-radius: 0 0 10px 0;
+  }
+}
+
+/*/////////////// votacao ////////////////////////*/
+#votacao {
+  position: relative;
+  min-height: 300px;
+}
+
+#votacao #tela-carregando {
+  position: absolute;
+  inset: 0;
+}
+
+#votacao .titulo-top{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#votacao .titulo-top h1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#votacao .titulo-top h1 img {
+  width: 50px;
+}
+
+#votacao .titulo-top h1 i {
+  margin-right: 10px;
+}
+
+#votacao #area-votar {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+#votacao #area-votar li {
+  margin: 20px;
+}
+
+#votacao #area-votar li button {
+  position: relative;
+  width: 300px;
+  height: 90px;
+  background: #80808033;
+  border: none;
+  border-radius: 5px;
+  outline: 3px solid transparent;
+  transition: 400ms;
+}
+
+#votacao #area-votar li button:hover {
+  outline-color: #FFD11D;
+}
+
+#votacao #area-votar li button img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;
+  border-radius: 5px 0 0 5px;
+}
+
+#votacao #area-votar li button h2 {
+  padding-left: 90px;
+  text-align: center;
+  font-weight: 500;
+  font-style: italic;
+}
+
+#votacao #tela-aviso {
+  position: absolute;
+  inset: 0;
+  padding: 30px;
+  background: #111111ec;
+  z-index: 9;
+}
+
+#votacao #tela-aviso .container-aviso {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#votacao #tela-aviso .container-aviso h1 {
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+#votacao #tela-aviso .container-aviso i {
+  margin-right: 10px;
+  color: #FFD11D;
+}
+
+#votacao #tela-aviso .container-aviso h1 span {
+  font-style: italic;
+  color: #FFD11D;
+}
+
+#votacao #tela-aviso .container-aviso .bnts {
+  display: flex;
+}
+
+#votacao #tela-aviso .container-aviso .bnts button {
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+  padding: 5px;
+  background: #80808033;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #F7F7F7;
+  transition: 400ms;
+}
+
+#votacao #tela-aviso .container-aviso .bnts button:first-child {
+  background: #80808079;
+}
+
+#votacao #tela-aviso .container-aviso .bnts button:hover {
+  background: #FFD11D;
+  color: #000000;
+}
+
+/*/////////////// música - playlist ////////////////////////*/
+#playlist iframe {
+  margin: 20px 0;
+}
+
+/*/////////////// roda pe do site ////////////////////////*/
+footer {
+  width: 100%;
+  background: #111111;
+}
+
+footer .container-footer {
+  text-align: center;
+}
+
+footer .container-footer p {
+  margin: 5px 0 0 0;
+}
+
+footer .container-footer ul {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .container-footer ul li {
+  margin: 10px;
+}
+
+footer .container-footer ul li div {
+  width: 50px;
+  height: 50px;
+  background: #80808033;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  font-size: 30px;
+  color: #808080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 400ms;
+}
+
+footer .container-footer ul li div svg {
+  width: 25px;
+}
+
+footer .container-footer a.fim {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: transparent;
+  background-size: 800% 800%;
+  background-image: linear-gradient(90deg, #ffd21dea, #808080);
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradient 2.5s ease infinite;
+}
+
+footer .container-footer a.fim:hover {
+  color: #FFD11D;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #tela-carregando p {
+    font-size: 1.5rem;
+  }
+  
+  .carregando-animacao {
+    width: 200px;
+    height: 200px;
+  }
+
+  #menu_navegacao .container-nav-1 ul {
+  justify-content: flex-end;
+  }
+
+  #menu_navegacao .container-nav-1 ul li {
+    display: none;
+  }
+
+  #menu_navegacao .container-nav-1 ul li:last-child {
+    display: block;
+  }
+
+  #mais_menu {
+    inset: 0;
+    width: 300px;
+    height: 100vh;
+    overflow: overlay;
+    border-right: 1px solid #1f1f1f;
+    transform: translatex(-300px);
+  }
+
+  #mais_menu.ativadoMenu {
+    transform: translatex(0px);
+  }
+
+  #mais_menu .container-mais-nav-1 .div-top button {
+    display: none;
+  }
+
+  #section-apresentacao .container-apresentacao h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  #novidades ul li {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  #novidades ul li a div {
+    width: 100%;
+    max-width: unset;
+    min-height: unset;
+  }
+
+  #videos #thumbnails-videos #extra {
+    display: none;
+  }
+
+  #especificacoes div {
+    flex-direction: column; 
+    align-items: center
+  }
+
+  #especificacoes div ul {
+    margin: 20px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #section-apresentacao {
+    height: 100vh;
+    min-height: 500px;
+  }
+
+  #Previlegios ul li div {
+    width: 100%;
+    height: 70px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  #Previlegios ul li p {
+    margin: 75px 0 0 0;
+  }
+
+  #videos #thumbnails-videos a svg { 
+    width: 70px;
+    height: 70px;
+  }
+
+  #ficha-inscricao .conteiner_input_jogadores li {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  #ficha-inscricao .conteiner_input_jogadores li div input,
+  #ficha-inscricao .input-numero {
+    max-width: unset;
+  }
+
+  #ficha-inscricao .bnt-inscricao {
+    max-width: unset;
+  }
+
+  #aviso .formas-pagamento li {
+    margin: 20px 0;
+  }
+
+  #times-gc .container-times ul {
+    margin: 20px 0;
+  }
+
+  #container-semtime li {
+    margin: 20px 0;
+  }
+
+  #premiados table tr th {
+    font-size: 1rem;
+  }
+
+  #premiados table tr td {
+    font-size: 1rem;
+  }
+
+  #premiados table tr th:nth-child(3),
+  #premiados table tr td:nth-child(3) {
+    display: none;
+  }
+
+  #premiados table tbody:last-child th:nth-child(2) {
+    border-radius: 0 10px 0 0;
+  }
+  
+  #premiados table tbody:last-child td:nth-child(2) {
+    border-radius: 0 0 10px 0;
+  }
+
+  #votacao #area-votar li {
+    margin: 20px 0;
+  }
+}

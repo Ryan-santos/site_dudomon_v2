@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aqui você vota em um campeão para o duds jogar em live de acordo com a rota que ele está jogando." />
+    <meta property="og:title" content="Votação" />
+    <meta property="og:Description" content="Aqui você vota em um campeão para o duds jogar em live de acordo com a rota que ele está jogando." />
+    <link rel="stylesheet" href="../main.css?v=5" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.css">
+    <link rel="icon" href="https://dudomon.epizy.com/imagens/logo-barra.ico" type="image/x-icon" />
+    <title>DUDOMON | VOTAÇÃO</title>
+</head>
+<body>
+  <div id="tela-carregando"><span><div class="carregando-animacao"></div><p>Carregando . . .</p></span></div>
+  <div id="menus"><!------------------------------ Aqui onde o main.js insere os menus ---------------------------------------------></div>
+  <section id="section-apresentacao">
+    <img src="../imagens/imagens_topo/Img-fundo-votacao.png" alt="">
+    <article>
+      <div class="max-width-tela container-apresentacao"> 
+        <h1>Votação</h1>
+        <p>Aqui você vota em um campeão para o duds jogar em live de acordo com a rota que ele está jogando, o campeão mais votado aparece no canto da live.</p>
+        <a id="status-votaco" class="none" href="#votacao"><!---------- Aqui onde o dados_votacao.js insere se ta opem ou fechada a votacao -------------></a>
+        <div class="gif-scroll">
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_NnBW3K.json"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"  loop autoplay></lottie-player>
+        </div>
+      </div>
+    </article>
+   </section>
+
+  <main id="conteudo">
+      <section id="votacao">
+        <article class="max-width-tela">
+          <div id="tela-carregando"><span><div class="carregando-animacao"></div></span></div>
+            <div class="titulo-top"><!------------ Aqui onde o dados_votacao.js insere a linha e o conometro --------------></div>
+            <ul id="area-votar"><!--------------- Aqui onde o dados_votacao.js insere os chanps para votar ---------------------></ul>
+            <div id="tela-aviso" class="none">
+              <div class="container-aviso"><!----------- Aqui onde o dados_votacao.js insere os avisos -------></div>
+            </div>
+        </article>
+      </section>
+      <section id="inportante" class="cor-destaque">
+        <article class="max-width-tela">
+          <h1 class="titulo">Importante</h1>
+          <ul class="items-inportantes">
+            <li><p>Você só poderá votar apenas uma vez a cada nova votação.</p></li>
+            <li><p>As votação são abertas geralmente um pouco antes do final das partidas.</p></li>
+            <li><p>Caso algum campão não esteja disponível para votação é porque ele já foi jogado ou o duds não joga com ele :-\.</p></li>
+          </ul>
+        </article>
+      </section>
+    <footer id="rodape"><!-------------------------- Aqui onde o main.js insere o rodape (footer) -------------------------------------></footer>
+  </main>
+  <script src="../main.js?v=5"></script>
+  <script src="dados_votacao.js?v=2"></script>
+</body>
